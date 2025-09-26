@@ -1,0 +1,591 @@
+body {
+  margin: 0;
+  font-family: 'MS Sans Serif', Tahoma, Arial, sans-serif;
+  background: #008080;
+  height: 100vh;
+  direction: ltr;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+#desktop-background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: #008080;
+  z-index: 0;
+}
+
+.desktop-icons {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 5;
+}
+
+.desktop-icon {
+  width: 32px;
+  height: 32px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.icon-recycle-bin {
+  background-image: url('icons/appwiz_1503.ico');
+}
+
+.icon-computer {
+  background-image: url('icons/msnstart_110.ico');
+}
+
+.icon-msnstart {
+  background-image: url('icons/msnstart_120.ico');
+}
+
+.icon-shdocvw {
+  background-image: url('icons/shdocvw_257.ico');
+}
+
+.window {
+  position: absolute;
+  background: #c0c0c0; 
+  border: 2px solid #000080; 
+  border-top-color: #ffffff; 
+  border-left-color: #ffffff;
+  border-bottom-color: #808080;
+  border-right-color: #808080;
+  box-shadow: 1px 1px 0 #000000; 
+  min-width: 320px;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  max-width: 90vw;
+  width: 520px;
+  left: 20vw !important; 
+  top: 5vh !important;
+}
+
+.window-header {
+  background: linear-gradient(to right, #000080, #1084d0); 
+  color: #ffffff;
+  padding: 3px 4px;
+  font-size: 11px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: move;
+  user-select: none;
+  border: 2px outset #ffffff; 
+  box-shadow: inset -1px -1px 0 #000080, inset 1px 1px 0 #dfdfdf;
+}
+.window-header .window-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+}
+
+.window-controls {
+  display: flex;
+  gap: 2px;
+}
+
+.close-btn, .minimize-btn, .restore-btn {
+  width: 16px;
+  height: 16px;
+  background: #c0c0c0;
+  border: 2px outset #ffffff;
+  font-weight: bold;
+  color: #000000;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.close-btn::after {
+  content: "×";
+  font-size: 10px;
+  font-weight: bold;
+  color: #000000;
+}
+.minimize-btn::after {
+  content: "_";
+  font-size: 10px;
+  font-weight: bold;
+  color: #000000;
+}
+.restore-btn::after {
+  content: "□";
+  font-size: 10px;
+  font-weight: bold;
+  color: #000000;
+}
+.close-btn:active, .minimize-btn:active, .restore-btn:active {
+  border: 2px inset #ffffff;
+  background: #e0e0e0;
+}
+
+.toolbar {
+  background: #c0c0c0;
+  display: flex;
+  gap: 4px;
+  padding: 2px 4px;
+  align-items: center;
+  border-bottom: 1px solid #808080;
+  border-top: 1px solid #ffffff;
+}
+
+.toolbar button {
+  font-family: 'MS Sans Serif', Tahoma, Arial, sans-serif;
+  font-size: 11px;
+  border: 2px outset #ffffff;
+  background: #c0c0c0;
+  padding: 2px 8px;
+  cursor: pointer;
+}
+.toolbar button:active {
+  border: 2px inset #ffffff;
+  background: #e0e0e0;
+}
+
+.models-dropdown {
+  position: relative;
+}
+#models-list, .models-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #c0c0c0;
+  border: 2px solid #000080;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-bottom-color: #808080;
+  border-right-color: #808080;
+  width: 250px;
+  z-index: 300;
+  list-style: none;
+  padding: 4px 0;
+  margin: 2px 0 0 0;
+  box-shadow: 1px 1px 0 #000000;
+}
+#models-list li, .models-list li {
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 11px;
+}
+#models-list li:hover, .models-list li:hover {
+  background: #000080;
+  color: #ffffff;
+}
+.hidden {
+  display: none !important;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 11px;
+}
+.model-checkbox {
+  display: none;
+}
+.checkbox-custom {
+  width: 12px;
+  height: 12px;
+  background: #ffffff;
+  border: 2px inset #808080;
+  position: relative;
+  flex-shrink: 0;
+}
+.model-checkbox:checked + .checkbox-custom::after {
+  content: "✔";
+  position: absolute;
+  top: -2px;
+  left: 1px;
+  font-size: 10px;
+  color: #000000;
+  font-weight: bold;
+}
+#models-list li:hover .checkbox-custom, .models-list li:hover .checkbox-custom {
+  background: #ffffff;
+}
+.model-icon {
+  width: 32px;
+  height: 32px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.chat-content {
+  background: #ffffff;
+  flex: 1 1 auto;
+  padding: 8px;
+  overflow-y: auto;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  min-height: 150px;
+  max-height: 60vh;
+  border: 2px inset #ffffff;
+}
+.chat-message {
+  margin-bottom: 0.8em;
+}
+.chat-message.user {
+  text-align: right;
+  font-weight: bold;
+  color: #000080;
+}
+.chat-message.ai {
+  text-align: left;
+  font-weight: bold;
+  color: #003366;
+}
+.chat-message-content {
+  white-space: pre-wrap;
+}
+
+#chat-form, .chat-form {
+  display: flex;
+  border-top: 2px solid #ffffff;
+  border-bottom: 2px solid #808080;
+  background: #c0c0c0;
+  padding: 4px 6px;
+  gap: 2px;
+}
+#chat-input, .chat-input {
+  flex: 1;
+  font-family: 'MS Sans Serif', Tahoma, Arial, sans-serif;
+  font-size: 11px;
+  border: 2px inset #ffffff;
+  background: #ffffff;
+  padding: 3px 6px;
+  outline: none;
+}
+#send-btn, .send-btn {
+  width: 60px;
+  background: #c0c0c0;
+  border: 2px outset #ffffff;
+  font-family: 'MS Sans Serif', Tahoma, Arial, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+}
+#send-btn:active, .send-btn:active {
+  border: 2px inset #ffffff;
+  background: #e0e0e0;
+}
+.footer {
+  background: #c0c0c0;
+  border-top: 1px solid #808080;
+  border-bottom: 1px solid #ffffff;
+  padding: 2px 6px;
+  min-height: 20px;
+  font-size: 11px;
+  color: #000000;
+}
+.resize-handle {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  background-image: linear-gradient(135deg, #fefefe 16.67%, #c6c6c6 16.67%, #c6c6c6 33.33%, #848584 33.33%, #848584 50%, #fefefe 50%, #fefefe 66.67%, #c6c6c6 66.67%, #c6c6c6 83.33%, #848584 83.33%, #848584 100%);
+  background-size: 6.49px 6.49px;
+  clip-path: polygon(100% 0px, 0px 100%, 100% 100%);
+  cursor: nwse-resize;
+}
+
+.task-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: #c0c0c0;
+  border-top: 2px solid #ffffff;
+  border-bottom: 2px solid #000000;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #000000;
+  box-shadow: inset 1px 1px 0 #dfdfdf, inset -1px -1px 0 #808080;
+  display: flex;
+  align-items: center;
+  z-index: 100;
+  padding: 0 2px;
+}
+
+.clock {
+  background: #c0c0c0;
+  padding: 2px 6px;
+  border: 2px inset #ffffff;
+  font-family: 'MS Sans Serif', Tahoma, Arial, sans-serif;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  min-width: 50px;
+  text-align: center;
+  margin-left: auto;
+}
+
+#start-btn {
+  display: flex;
+  align-items: center;
+  font-family: 'MS Sans Serif', Tahoma, Arial, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  background: transparent;
+  border: none; 
+  padding: 0; 
+  cursor: pointer;
+  margin: 0; 
+  box-shadow: none; 
+}
+#start-btn:active {
+  background: transparent; 
+  border: none; 
+  box-shadow: none; 
+}
+.start-logo {
+  vertical-align: middle;
+  margin: 0; 
+  width: 110px; 
+  height: 35px; 
+}
+.task-menu {
+  position: absolute;
+  left: 0;
+  bottom: 40px; 
+  background: #c0c0c0;
+  border: 2px solid #000080;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-bottom-color: #808080;
+  border-right-color: #808080;
+  display: flex;
+  z-index: 200;
+  min-width: 200px;
+  box-shadow: 1px 1px 0 #000000;
+}
+.task-menu-sidebar {
+  background: linear-gradient(180deg, #000080 0%, #555555 100%);
+  color: #ffffff;
+  width: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-lr;
+  text-align: center;
+  font-size: 14px;
+  padding: 8px 0;
+  border-right: 1px solid #808080;
+}
+.task-menu-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+.task-menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 6px 0 6px 6px;
+  min-width: 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.task-menu-list li {
+  background: none;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.task-menu-list li:hover {
+  background: #000080;
+  color: #ffffff;
+}
+.task-menu-list .separator {
+  height: 1px;
+  background: #808080;
+  margin: 4px 0;
+  width: 90%;
+}
+.task-menu-list .icon {
+  width: 32px;
+  height: 32px;
+}
+
+.credits-window {
+  top: 10vh;
+  left: 5vw;
+  padding-bottom: 8px;
+  z-index: 50;
+}
+.credits-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 12px 8px;
+  text-align: center;
+  font-size: 11px;
+}
+.credits-content ul {
+  text-align: left;
+  font-size: 10px;
+}
+.credits-content li {
+  margin-bottom: 4px;
+}
+.credits-content hr {
+  width: 90%;
+  border: none;
+  border-top: 1px solid #808080;
+}
+.credits-icon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 2px;
+}
+
+a {
+  color: #000080;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url('icons/Wait.png') no-repeat center center;
+  background-size: contain;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
+.error-window {
+  z-index: 1000;
+  position: fixed;
+  background: #c0c0c0;
+  border: 2px solid #000080;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-bottom-color: #808080;
+  border-right-color: #808080;
+  box-shadow: 2px 2px 0 #000000;
+}
+.error-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  font-size: 11px;
+  background: #c0c0c0;
+  height: 100%;
+}
+.error-content p {
+  margin: 0 0 16px 0;
+  text-align: center;
+  color: #000000;
+}
+#error-ok-btn {
+  width: 60px;
+  background: #c0c0c0;
+  border: 2px outset #ffffff;
+  font-family: 'MS Sans Serif', Tahoma, Arial, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px 8px;
+  cursor: pointer;
+}
+#error-ok-btn:active {
+  border: 2px inset #ffffff;
+  background: #e0e0e0;
+}
+.error-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+  .window {
+    width: 90vw !important;
+    min-height: 70vh;
+    left: 5vw !important; 
+    top: 5vh !important;
+  }
+  .error-window {
+    width: 80vw !important;
+    left: 10vw !important;
+    top: 15vh !important;
+  }
+  .task-bar {
+    height: 28px;
+    padding: 2px;
+  }
+  .clock {
+    margin-left: auto;
+    font-size: 10px;
+  }
+  .desktop-icons {
+    left: 10px;
+    gap: 15px;
+  }
+  .desktop-icon {
+    width: 24px;
+    height: 24px;
+  }
+  #start-btn {
+    margin-right: 0;
+    font-size: 10px;
+    padding: 0; 
+    background: transparent; 
+    border: none; 
+    box-shadow: none; 
+    margin: 0; 
+  }
+  .task-menu {
+    left: 0;
+    bottom: 34px; 
+    min-width: 180px;
+  }
+  .task-menu-sidebar {
+    width: 32px;
+    font-size: 12px;
+  }
+  .task-menu-title {
+    font-size: 14px;
+  }
+  .task-menu-list {
+    min-width: 140px;
+  }
+  .task-menu-list .icon {
+    width: 24px;
+    height: 24px;
+  }
+  .toolbar button {
+    padding: 2px 6px;
+    font-size: 10px;
+  }
+  .spinner {
+    width: 14px;
+    height: 14px;
+  }
+  .start-logo {
+    width: 60px; 
+    height: 33px;
+  }
+}
