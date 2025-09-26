@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'MS Sans Serif';
+  src: url('ms_sans_serif.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MS Sans Serif';
+  src: url('ms_sans_serif_bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+body, .window, .window-header, .toolbar, .chat-content, .footer, .start-bar, .start-menu, #chat-input, #send-btn {
+  font-family: 'MS Sans Serif', Tahoma, Arial, sans-serif !important;
+}
