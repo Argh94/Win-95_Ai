@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>WinGPT - Windows 98 Chatbot</title>
+  <link rel="stylesheet" href="fonts/ms_sans_serif.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="desktop-background"></div>
+  <div class="desktop-icons">
+    <div class="desktop-icon icon-recycle-bin"></div>
+    <div class="desktop-icon icon-computer"></div>
+    <div class="desktop-icon icon-msnstart"></div>
+    <div class="desktop-icon icon-shdocvw"></div>
+  </div>
+
+  <div class="window" id="chat-window" style="left: 40px; top: 40px; width: 520px; min-height: 380px;">
+    <div class="window-header" id="chat-header">
+      <img src="icons/gpt.png" alt="chat-icon" class="window-icon">
+      <span>WinGPT</span>
+      <div class="window-controls">
+        <button class="minimize-btn" id="minimize-chat" title="Minimize"></button>
+        <button class="restore-btn" id="restore-chat" title="Restore"></button>
+        <button class="close-btn" id="close-chat" title="Close"></button>
+      </div>
+    </div>
+    <div class="toolbar">
+      <button id="new-chat">New Chat</button>
+      <div class="models-dropdown">
+        <button id="model-btn">Select Model ▼</button>
+        <ul id="models-list" class="hidden">
+          <li>
+            <label class="checkbox-label">
+              <img src="icons/icwdial101.png" alt="model-icon" class="model-icon">
+              <input type="checkbox" class="model-checkbox" data-model="deepseek/deepseek-chat-v3.1:free">
+              <span class="checkbox-custom"></span>
+              DeepSeek Chat V3.1 (Free)
+            </label>
+          </li>
+          <li>
+            <label class="checkbox-label">
+              <img src="icons/icwdial101.png" alt="model-icon" class="model-icon">
+              <input type="checkbox" class="model-checkbox" data-model="openai/gpt-oss-20b:free">
+              <span class="checkbox-custom"></span>
+              GPT-OSS-20B (Free)
+            </label>
+          </li>
+          <li>
+            <label class="checkbox-label">
+              <img src="icons/icwdial101.png" alt="model-icon" class="model-icon">
+              <input type="checkbox" class="model-checkbox" data-model="meta-llama/llama-3.3-8b-instruct:free">
+              <span class="checkbox-custom"></span>
+              LLaMA 3.3 8B (Free)
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="chat-content" id="chat-content"></div>
+    <form id="chat-form" autocomplete="off">
+      <input type="text" id="chat-input" placeholder="Ask anything…" autocomplete="off" />
+      <button type="submit" id="send-btn">Send</button>
+      <div id="spinner" class="spinner hidden"></div>
+    </form>
+    <div class="footer" id="chat-footer"></div>
+    <div class="resize-handle"></div>
+  </div>
+
+  <div class="window error-window hidden" id="error-window" style="width: 300px; min-height: 150px; top: 25vh; left: 25vw; z-index: 1000;">
+    <div class="window-header">
+      <img src="icons/confcp_118.ico" alt="error-icon" class="error-icon" width="16" height="16">
+      <span id="error-title">WinGPT Error</span>
+      <button class="close-btn" id="close-error" title="Close"></button>
+    </div>
+    <div class="error-content">
+      <p id="error-message">An error occurred.</p>
+      <button id="error-ok-btn">OK</button>
+    </div>
+  </div>
+
+  <div class="task-bar">
+    <button id="start-btn">
+      <img src="icons/btn-windows-default.png" alt="start-logo" class="start-logo" width="16" height="16">
+    </button>
+    <div class="task-menu hidden" id="task-menu">
+      <div class="task-menu-sidebar">
+        <span class="task-menu-title">Win<span style="font-weight:bold">GPT</span></span>
+      </div>
+      <ul class="task-menu-list">
+        <li id="menu-new-chat">
+          <img src="icons/gpt.png" alt="gpt" class="icon" width="32" height="32">
+          WinGPT
+        </li>
+        <li id="menu-source">
+          <img src="icons/folder.png" alt="folder" class="icon" width="32" height="32">
+          Source
+        </li>
+        <li class="separator"></li>
+        <li id="menu-credits">
+          <img src="icons/help.png" alt="help" class="icon" width="32" height="32">
+          Credits
+        </li>
+      </ul>
+    </div>
+    <span class="clock" id="clock"></span>
+  </div>
+
+  <div class="window credits-window hidden" id="credits-window" style="width: 340px; min-height: 420px;">
+    <div class="window-header" id="credits-header">
+      <span>Credits</span>
+      <button class="close-btn" id="close-credits" title="Close"></button>
+    </div>
+    <div class="window-content credits-content">
+      <img src="icons/gpt.png" class="credits-icon" alt="WinGPT">
+      <b style="font-weight:bold">WinGPT</b>
+      <p>WinGPT is a demo of a Windows 95-like interface for conversational AI models.</p>
+      <p>
+        Inspired by
+        <a href="https://twitter.com/lucas__crespo/status/1795870218234785865" target="_blank">Lucas Crespo's tweet</a>.<br>
+        “What if ChatGPT came out in '95?”
+      </p>
+      <hr>
+      <button onclick="window.open('https://github.com/Argh94/Win-95_Ai')">Course Code</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
