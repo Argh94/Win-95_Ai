@@ -25,8 +25,8 @@
 ## Screenshots
 
 <div align="center">
-  <img src="https://github.com/Argh94/Win-95_Ai/blob/main/icons/D.png?raw=true" alt="Chicken Crossy Road Desktop Screenshot" width="320"/>
-  <img src="https://github.com/Argh94/Win-95_Ai/blob/main/icons/M.png?raw=true" alt="Chicken Crossy Road Mobile Screenshot" width="200"/>
+  <img src="https://github.com/Argh94/Win-95_Ai/blob/main/icons/M.png?raw=true" alt="Chicken Crossy Road Desktop Screenshot" width="320"/>
+  <img src="https://github.com/Argh94/Win-95_Ai/blob/main/icons/D.png?raw=true" alt="Chicken Crossy Road Mobile Screenshot" width="200"/>
 </div>
 
 ---
