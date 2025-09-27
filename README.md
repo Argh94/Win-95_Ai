@@ -22,7 +22,14 @@
 - **Modular Design:** Flexible architecture allowing easy customization and extension.
 
 ---
+## Screenshots
 
+<div align="center">
+  <img src="https://github.com/Argh94/Win-95_Ai/blob/main/icons/D.png?raw=true" alt="Chicken Crossy Road Desktop Screenshot" width="320"/>
+  <img src="https://github.com/Argh94/Win-95_Ai/blob/main/icons/M.png?raw=true" alt="Chicken Crossy Road Mobile Screenshot" width="200"/>
+</div>
+
+---
 ## Inspiration
 
 This project was sparked by a tweet from [Lucas Crespo](https://x.com/lucas__crespo/status/1795870218234785865), posing the question, "What if ChatGPT came out in '95?" While the [React95 library](https://github.com/React95/React95) offers pre-built Windows 95 components, this project was intentionally developed from scratch using HTML, CSS, and JavaScript to fully embrace the hypothetical '95 aesthetic and technical constraints.
