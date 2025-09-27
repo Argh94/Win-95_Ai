@@ -10,27 +10,32 @@
 
 ## Description
 
-**Win-95_Ai** is a cutting-edge project inspired by the aesthetics and nostalgia of Windows 95, powered with modern artificial intelligence capabilities.  
-The project combines retro design elements with advanced AI features, making it both visually appealing and highly functional.
+**Win-95_Ai** is an innovative project that blends the nostalgic aesthetics of Windows 95 with modern artificial intelligence capabilities. Inspired by a thought-provoking tweet from Lucas Crespo ("What if ChatGPT came out in '95?"), this project reimagines a retro user interface with cutting-edge AI features, offering a unique and functional experience.
 
 ### Key Features
 
-- **Retro Windows 95 UI:** Enjoy a vintage look and feel with a modern twist.
-- **AI-Powered Tools:** Integrated artificial intelligence for enhanced user experience.
-- **Messaging & Notification System:** Send and receive messages to websites using Cloudflare for secure packet delivery.
-- **Cloudflare Integration:** Utilizes Cloudflare services for efficient and reliable communication and packet delivery.
-- **Code Sourcing:** Portions of the codebase are sourced from [OpenRouter](https://openrouter.ai/), ensuring stability and innovation.
-- **Modular Design:** Easily extend or customize components as needed.
+- **Retro Windows 95 UI:** A vintage design crafted with HTML, CSS, and JavaScript, diverging from the React95 library for a custom approach.
+- **AI-Powered Tools:** Enhanced user interaction through AI, leveraging the OpenRouter API.
+- **Messaging & Notification System:** Secure communication with websites via Cloudflare Workers for packet delivery.
+- **Cloudflare Integration:** Utilizes Cloudflare services for efficient and reliable data handling and messaging.
+- **Custom AI Integration:** AI responses are processed through Cloudflare Workers, interfacing with the OpenRouter API.
+- **Modular Design:** Flexible architecture allowing easy customization and extension.
+
+---
+
+## Inspiration
+
+This project was sparked by a tweet from [Lucas Crespo](https://x.com/lucas__crespo/status/1795870218234785865), posing the question, "What if ChatGPT came out in '95?" While the [React95 library](https://github.com/React95/React95) offers pre-built Windows 95 components, this project was intentionally developed from scratch using HTML, CSS, and JavaScript to fully embrace the hypothetical '95 aesthetic and technical constraints.
 
 ---
 
 ## Technologies Used
 
-- **Python** (core logic)
+- **Python** (core backend logic)
 - **JavaScript** (frontend interactions)
-- **HTML/CSS** (UI design)
-- **Cloudflare API** (packet/message delivery)
-- **OpenRouter API** (AI routing and code inspiration)
+- **HTML/CSS** (custom UI design)
+- **Cloudflare Workers** (AI request handling and packet delivery)
+- **OpenRouter API** (AI routing and response generation)
 
 ---
 
@@ -40,8 +45,8 @@ The project combines retro design elements with advanced AI features, making it 
 
 - Python 3.8+
 - Node.js & npm
-- Cloudflare account (for API integration)
-- OpenRouter API key (if required)
+- Cloudflare account (for API and Workers integration)
+- OpenRouter API key
 
 ### Installation
 
@@ -71,14 +76,15 @@ npm install
 
 ## Credits
 
-- Code inspired and partially sourced from [OpenRouter](https://openrouter.ai/)
-- Cloud packet delivery and messaging powered by [Cloudflare](https://www.cloudflare.com/)
+- **Inspiration:** [Lucas Crespo](https://x.com/lucas__crespo/status/1795870218234785865) for the original tweet idea.
+- **Code Inspiration:** Partially sourced and inspired by [OpenRouter](https://openrouter.ai/).
+- **Infrastructure:** Powered by [Cloudflare](https://www.cloudflare.com/) for messaging and packet delivery.
 
 ---
 
 ## Contributing
 
-We welcome contributions!  
+We welcome contributions to enhance this project!  
 Please submit issues, suggestions, or pull requests via [GitHub Issues](https://github.com/Argh94/Win-95_Ai/issues).
 
 ---
@@ -92,3 +98,10 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Contact
 
 For support or inquiries, please open an issue or contact [Argh94](https://github.com/Argh94).
+
+---
+
+## Notes
+
+- The project avoids using the React95 library, opting for a custom-built UI to reflect a '95-era development style.
+- AI functionality is achieved through Cloudflare Workers interfacing with the OpenRouter API, ensuring a seamless retro-modern experience.
